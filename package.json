@@ -1,0 +1,35 @@
+{
+  "name": "dacast",
+  "version": "0.0.3",
+  "description": "Dacast API wrapper",
+  "main": "lib/dacast.js",
+  "directories": {
+    "example": "examples"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.6.3",
+    "formidable": "^1.0.17",
+    "multiparty": "^4.1.2",
+    "request": "^2.74.0"
+  },
+  "devDependencies": {
+    "mocha": "^3.0.2"
+  },
+  "scripts": {
+    "test": "mocha test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dacast/api-nodejs.git"
+  },
+  "keywords": [
+    "dacast"
+  ],
+  "author": "Aldric Feuillebois <aldric.feuillebois@dacast.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dacast/api-nodejs/issues"
+  },
+  "homepage": "https://github.com/dacast/api-nodejs#readme"
+}
