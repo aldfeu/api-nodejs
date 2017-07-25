@@ -10,25 +10,6 @@ cd your/project/folder
 npm install dacast --save
 ```
 
-# Testing
-
-In order to run tests, you need the following packages
-- Mocha
-- Chai
-
-Run the following commands on your terminal:
-
-```bash
-npm install -g mocha
-npm install --save-dev chai
-```
-
-Try running your test with the following command:
-
-```bash
-mocha test/test.js -R nyan
-```
-
 # Usage
 
 Before you can start using the api you need to **set your API key.**
