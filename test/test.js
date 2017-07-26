@@ -1,5 +1,5 @@
   // On lance le serveur node à tester
-  var dacast = require('../dacast.js')('65041_5e0e9cca5dcda8e8b36a');
+  var dacast = require('../lib/dacast.js')('65041_5e0e9cca5dcda8e8b36a');
   var chai = require('chai');
   var expect = chai.expect;
   var Test = function() {
@@ -7,7 +7,7 @@
     this.list = function(type, callbackSuccess, callbackError) {
       var self = this;
       dacast['' + type + ''].list({
-        perpage: 10, // Optional - Default : 25 
+        perpage: 10, // Optional - Default : 25
         page: 2 // Optional - Default : 1
       }, function(success) {
         if (type == 'vod') {
@@ -20,8 +20,8 @@
     };
     this.create = function(type, callbackSuccess, callbackError) {
       var self = this;
-      dacast['' + type + ''].create({
-        title: 'First channel', // Optional - Default : 25 
+      dacast['' + type + ''].all({
+        title: 'First channel', // Optional - Default : 25
         description: 'Enjoy my channel dude' // Optional - Default : 1
       }, function(success) {
         self.elementCreated = success.id;
@@ -70,6 +70,28 @@
         return callbackError(error);
       });
     };
+    this.uploadVideo = function(type, callbackSuccess, callbackError) {
+      dacast['' + type + ''].create(
+        {
+          file: {
+            fieldName: 'test',
+            originalFilename: 'test.mp4',
+            path: './test/test.mp4',
+            headers: {
+              'content-disposition': 'form-data; name="test"; filename="test.mp4"',
+              'content-type': 'video/mp4'
+            },
+            size: 10197725
+          }
+        },
+        function success() {
+          console.log('Video uploaded');
+          return callbackSuccess();
+        },
+        function(error) {
+          return callbackError(error);
+        });
+    };
     this.transcodingList = function(callbackSuccess, callbackError) {
       var self = this;
       dacast.vod.transcoding.list({
@@ -99,7 +121,7 @@
 
   describe('Test backend API ', function() {
 
-    // ****************** Channel methods ****************** 
+    // ****************** Channel methods ******************
     describe('Test Channel methods ', function() {
       describe('Test list method', function() {
         it('return 200 when i get list of all channel', function(done) {
@@ -146,7 +168,7 @@
       });
     });
 
-    // ****************** Package methods ****************** 
+    // ****************** Package methods ******************
     describe('Test package methods ', function() {
       describe('Test list method', function() {
         it('return 200 when i get list of all package', function(done) {
@@ -193,7 +215,7 @@
       });
     });
 
-    // ****************** Playlist methods ****************** 
+    // ****************** Playlist methods ******************
     describe('Test playlist methods ', function() {
       describe('Test list method', function() {
         it('return 200 when i get list of all playlist', function(done) {
@@ -240,7 +262,7 @@
       });
     });
 
-    // ****************** Vod methods ****************** 
+    // ****************** Vod methods ******************
     describe('Test vod methods ', function() {
       describe('Test list method', function() {
         it('return 200 when i get list of all vod', function(done) {
@@ -250,6 +272,20 @@
           }, function(error) {
             done(error);
           })
+        });
+      });
+
+      describe('Test upload method', function() {
+        it('return 200 when successfully uploading Video On Demand using test file', function(done) {
+          this.timeout(timeout);
+          test.uploadVideo(
+            'vod',
+            function(success) {
+              done();
+            },
+            function(error) {
+              done(error);
+            })
         });
       });
 
@@ -263,6 +299,5 @@
           })
         });
       });
-
     });
   });
