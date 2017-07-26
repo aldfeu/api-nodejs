@@ -1,4 +1,4 @@
-# [![bitmovin](http://www.dacast.com/wp-content/themes/dacast/images/logo.png)](https://www.dacast.com)
+git# [![bitmovin](http://www.dacast.com/wp-content/themes/dacast/images/logo.png)](https://www.dacast.com)
 
 The Dacast SDK for Node.js is a seamless integration with the [Dacast API](https://www.dacast.com). You can use our API to access Dacast API endpoints.
 
@@ -8,6 +8,25 @@ Change directory to your project folder and install with NPM.
 ```bash
 cd your/project/folder
 npm install dacast --save
+```
+
+# Testing
+
+In order to run tests, you need the following packages
+- Mocha
+- Chai
+
+Run the following commands on your terminal:
+
+```bash
+npm install -g mocha
+npm install --save-dev chai
+```
+
+Try running your test with the following command:
+
+```bash
+mocha test/test.js -R nyan
 ```
 
 # Usage
