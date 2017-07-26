@@ -1,4 +1,4 @@
-git# [![bitmovin](http://www.dacast.com/wp-content/themes/dacast/images/logo.png)](https://www.dacast.com)
+# [![bitmovin](http://www.dacast.com/wp-content/themes/dacast/images/logo.png)](https://www.dacast.com)
 
 The Dacast SDK for Node.js is a seamless integration with the [Dacast API](https://www.dacast.com). You can use our API to access Dacast API endpoints.
 
