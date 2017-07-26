@@ -75,10 +75,10 @@
         {
           file: {
             fieldName: 'test',
-            originalFilename: 'yuri.mp4',
-            path: './test/yuri.mp4',
+            originalFilename: 'test.mp4',
+            path: './test/test.mp4',
             headers: {
-              'content-disposition': 'form-data; name="test"; filename="yuri.mp4"',
+              'content-disposition': 'form-data; name="test"; filename="test.mp4"',
               'content-type': 'video/mp4'
             },
             size: 10197725
