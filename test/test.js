@@ -81,7 +81,7 @@
               'content-disposition': 'form-data; name="test"; filename="test.mp4"',
               'content-type': 'video/mp4'
             },
-            size: 10197725
+            size: 10498677
           }
         },
         function success() {
